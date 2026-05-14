@@ -39,11 +39,12 @@
     .home-hero { background:linear-gradient(160deg,#0d2a5e,#0a1f47); border-bottom:1px solid #1a3a6e; padding:24px 24px 20px; }
     .home-greeting { font-family:'Barlow Condensed',sans-serif; font-size:13px; color:#7a9cc8; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
     .home-name { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:700; color:#f0f0f0; margin-bottom:16px; }
-    .home-meta { display:flex; gap:12px; }
-    .meta-pill { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:6px 12px; font-size:11px; color:#aaa; font-family:'Barlow Condensed',sans-serif; }
+    .home-meta { display:flex; gap:12px; flex-wrap:wrap; }
+    .meta-pill { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:6px 12px; font-size:11px; color:#aaa; font-family:'Barlow Condensed',sans-serif; cursor:pointer; }
     .meta-pill span { color:#5B9BD5; font-weight:600; }
     .cta-button { margin:24px; background:#1B4F9C; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:18px; letter-spacing:2px; text-transform:uppercase; border:none; border-radius:10px; padding:18px; width:calc(100% - 48px); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:background 0.15s,transform 0.1s; }
     .cta-button:active { transform:scale(0.98); background:#163d7a; }
+    .cta-button:disabled { background:#3a3a3a; color:#555; cursor:not-allowed; }
     .recent-section { padding:0 24px 24px; }
     .section-label { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#555; margin-bottom:12px; padding-top:20px; }
     .recent-card { background:#1a1a1a; border:1px solid #252525; border-radius:10px; padding:14px 16px; margin-bottom:10px; display:flex; align-items:center; gap:14px; }
@@ -51,7 +52,6 @@
     .recent-info { flex:1; }
     .recent-employee { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:15px; color:#e0e0e0; }
     .recent-cat { font-size:12px; color:#888; margin-top:2px; }
-    .recent-date { font-size:11px; color:#555; font-family:'Barlow Condensed',sans-serif; }
     .form-progress { background:#0f0f0f; padding:12px 24px; display:flex; gap:6px; border-bottom:1px solid #1e1e1e; }
     .progress-dot { height:4px; border-radius:2px; flex:1; background:#2a2a2a; transition:background 0.3s; }
     .progress-dot.active { background:#2B6CB0; }
@@ -93,6 +93,16 @@
     .summary-pills { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px; }
     .summary-pill { background:#1e1e1e; border:1px solid #2a2a2a; border-radius:20px; padding:5px 12px; font-size:12px; color:#aaa; font-family:'Barlow Condensed',sans-serif; }
     .btn-done { width:100%; padding:16px; background:#1B4F9C; border:none; border-radius:10px; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:16px; letter-spacing:2px; text-transform:uppercase; cursor:pointer; }
+    .submitting-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 32px; text-align:center; min-height:600px; gap:20px; }
+    .spinner { width:56px; height:56px; border:4px solid #1a1a1a; border-top:4px solid #2B6CB0; border-radius:50%; animation:spin 0.8s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .submitting-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#f0f0f0; }
+    .submitting-sub { font-size:13px; color:#666; line-height:1.6; }
+    .error-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 32px; text-align:center; min-height:600px; gap:16px; }
+    .error-icon { font-size:48px; }
+    .error-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#e07060; }
+    .error-msg { font-size:13px; color:#888; line-height:1.6; max-width:280px; }
+    .btn-retry { padding:14px 28px; background:#1B4F9C; border:none; border-radius:10px; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; }
     .pin-screen { display:flex; flex-direction:column; align-items:center; padding:36px 32px; }
     .pin-lock { font-size:40px; margin-bottom:16px; }
     .pin-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#f0f0f0; margin-bottom:6px; }
@@ -113,8 +123,7 @@
     .admin-add-row { display:flex; gap:10px; margin-bottom:16px; }
     .admin-input { flex:1; background:#1a1a1a; border:1.5px solid #2a2a2a; border-radius:8px; color:#e0e0e0; font-family:'Barlow',sans-serif; font-size:14px; padding:11px 14px; outline:none; transition:border-color 0.2s; }
     .admin-input:focus { border-color:#2B6CB0; }
-    .admin-add-btn { background:#1B4F9C; border:none; border-radius:8px; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:24px; width:44px; height:44px; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
-    .admin-add-btn:hover { background:#163d7a; }
+    .admin-add-btn { background:#1B4F9C; border:none; border-radius:8px; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:24px; width:44px; height:44px; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
     .admin-add-btn:disabled { background:#2a2a2a; color:#444; cursor:not-allowed; }
     .admin-count { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#444; margin-bottom:12px; }
     .admin-list { display:flex; flex-direction:column; gap:8px; }
@@ -122,7 +131,7 @@
     .admin-item-name { font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:600; color:#e0e0e0; }
     .admin-del { background:none; border:none; color:#555; font-size:16px; cursor:pointer; padding:4px 8px; border-radius:6px; transition:all 0.15s; }
     .admin-del:hover { background:rgba(192,57,43,0.15); color:#e07060; }
-    .admin-empty { text-align:center; padding:32px 0; color:#444; font-size:13px; font-family:'Barlow Condensed',sans-serif; letter-spacing:1px; }
+    .admin-empty { text-align:center; padding:32px 0; color:#444; font-size:13px; font-family:'Barlow Condensed',sans-serif; }
     .settings-card { background:#1a1a1a; border:1px solid #252525; border-radius:10px; padding:16px; margin-bottom:20px; }
     .settings-card-title { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#666; margin-bottom:14px; }
     .info-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #222; }
@@ -130,29 +139,18 @@
     .info-key { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#555; }
     .info-val { font-family:'Barlow Condensed',sans-serif; font-size:13px; color:#aaa; }
     .hint { font-size:11px; color:#555; margin-top:8px; font-family:'Barlow Condensed',sans-serif; }
-    /* Loading & error */
-    .submitting-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 32px; text-align:center; min-height:600px; gap:20px; }
-    .spinner { width:56px; height:56px; border:4px solid #1a1a1a; border-top:4px solid #2B6CB0; border-radius:50%; animation:spin 0.8s linear infinite; }
-    @keyframes spin { to { transform:rotate(360deg); } }
-    .submitting-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#f0f0f0; }
-    .submitting-sub { font-size:13px; color:#666; line-height:1.6; }
-    .error-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 32px; text-align:center; min-height:600px; gap:16px; }
-    .error-icon { font-size:48px; }
-    .error-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:#e07060; }
-    .error-msg { font-size:13px; color:#888; line-height:1.6; max-width:280px; }
-    .btn-retry { padding:14px 28px; background:#1B4F9C; border:none; border-radius:10px; color:#fff; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; }
-    .setup-screen { display:flex; flex-direction:column; align-items:center; padding:40px 28px; text-align:center; }
+    /* Setup / identity screen */
+    .setup-screen { display:flex; flex-direction:column; align-items:center; padding:36px 24px; }
     .setup-icon { font-size:52px; margin-bottom:20px; }
-    .setup-title { font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:800; color:#f0f0f0; margin-bottom:8px; }
-    .setup-sub { font-size:13px; color:#666; line-height:1.6; margin-bottom:32px; }
-    .setup-list { width:100%; display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
-    .setup-item { background:#1a1a1a; border:2px solid #252525; border-radius:12px; padding:16px 20px; cursor:pointer; text-align:left; transition:all 0.15s; display:flex; align-items:center; gap:14px; }
+    .setup-title { font-family:'Barlow Condensed',sans-serif; font-size:26px; font-weight:800; color:#f0f0f0; margin-bottom:8px; text-align:center; }
+    .setup-sub { font-size:13px; color:#666; line-height:1.6; margin-bottom:28px; text-align:center; }
+    .setup-list { width:100%; display:flex; flex-direction:column; gap:10px; }
+    .setup-item { background:#1a1a1a; border:2px solid #252525; border-radius:12px; padding:14px 18px; cursor:pointer; text-align:left; transition:all 0.15s; display:flex; align-items:center; gap:14px; width:100%; }
     .setup-item:hover { border-color:#2B6CB0; }
-    .setup-item:active { transform:scale(0.98); border-color:#2B6CB0; background:rgba(43,108,176,0.08); }
-    .setup-item-name { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:17px; color:#e0e0e0; }
-    .setup-item-role { font-size:12px; color:#555; margin-top:2px; }
-    .setup-avatar { width:40px; height:40px; border-radius:50%; background:#1B4F9C; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:16px; color:#fff; flex-shrink:0; } background:rgba(245,166,35,0.12); border:1px solid rgba(245,166,35,0.3); border-radius:8px; padding:12px 16px; margin:16px 24px 0; font-size:12px; color:#c8a040; font-family:'Barlow Condensed',sans-serif; line-height:1.6; }
-    .url-banner strong { color:#F5A623; }
+    .setup-item:active { transform:scale(0.98); background:rgba(43,108,176,0.08); }
+    .setup-avatar { width:40px; height:40px; border-radius:50%; background:#1B4F9C; display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:15px; color:#fff; flex-shrink:0; }
+    .setup-item-name { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:16px; color:#e0e0e0; }
+    .setup-item-role { font-size:11px; color:#555; margin-top:2px; }
   </style>
 </head>
 <body>
@@ -160,13 +158,11 @@
 <script type="text/babel">
   const { useState, useEffect } = React;
 
-  // ── PASTE YOUR APPS SCRIPT URL HERE AFTER DEPLOYING ──────────
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxScl3tXnXbZQ6I-jEAF49EI7JBH4N1ehNZPa_dN0zvXYOiEPx0BzRTWC07pHuV1Vru/exec";
-  // ─────────────────────────────────────────────────────────────
 
-  const DEF_EMP  = ["Alex Thornton","Ben Krawchuk","Carlos Mendez","Dan Pfeifer","Erik Sundwall","Frank Holowaty","George Patel","Hank Briggs","Ivan Sorokin","Jake Morrow","Kyle Buechler","Liam O'Brien"];
-  const DEF_SITES= ["Lacombe Industrial — Site A","Red Deer Civic Project","Ponoka Mechanical Plant","Wetaskiwin Retrofit","Calgary South Millwork"];
-  const DEF_SUPS = ["Todd McPeek","Dallas Marchand","Jeremy Hippe","Pat Dohei","Lee Chamberlain","Kiel Uchtenhagen","Scott Young","Erica Legge"];
+  const DEF_EMP   = ["Alex Thornton","Ben Krawchuk","Carlos Mendez","Dan Pfeifer","Erik Sundwall","Frank Holowaty","George Patel","Hank Briggs","Ivan Sorokin","Jake Morrow","Kyle Buechler","Liam O'Brien"];
+  const DEF_SITES = ["Lacombe Industrial — Site A","Red Deer Civic Project","Ponoka Mechanical Plant","Wetaskiwin Retrofit","Calgary South Millwork"];
+  const DEF_SUPS  = ["Todd McPeek","Dallas Marchand","Jeremy Hippe","Pat Dohei","Lee Chamberlain","Kiel Uchtenhagen","Scott Young","Erica Legge"];
 
   const CATS = [
     {id:"workmanship",icon:"🔨",label:"Poor Workmanship",     color:"#C0392B"},
@@ -182,22 +178,18 @@
     set:(k,v)=>{ try{localStorage.setItem(k,JSON.stringify(v));}catch{} },
   };
 
-  const getNow=()=>{const d=new Date();return{date:d.toISOString().split("T")[0],time:d.toTimeString().slice(0,5)};};
-  const genRef=()=>"BCG-"+Math.random().toString(36).slice(2,7).toUpperCase();
-  const LOGO="https://static.wixstatic.com/media/dd47e2_215f019d9bc143f9bdb85d7798093b02~mv2.jpg/v1/fill/w_215,h_132,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/BCG%20Rebrand%20June%202023%20(3)_edited.jpg";
+  const getNow = () => { const d=new Date(); return {date:d.toISOString().split("T")[0],time:d.toTimeString().slice(0,5)}; };
+  const genRef = () => "BCG-"+Math.random().toString(36).slice(2,7).toUpperCase();
+  const LOGO   = "https://static.wixstatic.com/media/dd47e2_215f019d9bc143f9bdb85d7798093b02~mv2.jpg/v1/fill/w_215,h_132,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/BCG%20Rebrand%20June%202023%20(3)_edited.jpg";
 
-  const scriptReady = SCRIPT_URL !== "PASTE_YOUR_SCRIPT_URL_HERE";
+  const toBase64 = f => new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(f); });
 
-  // Convert file to base64
-  const toBase64 = file => new Promise((res,rej)=>{
-    const r=new FileReader();
-    r.onload=()=>res(r.result);
-    r.onerror=rej;
-    r.readAsDataURL(file);
-  });
+  function initials(name) {
+    return name.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+  }
 
-  function StatusBar(){
-    return(
+  function StatusBar() {
+    return (
       <div className="status-bar">
         <span>{new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}</span>
         <span>●●● WiFi 🔋</span>
@@ -205,68 +197,68 @@
     );
   }
 
-  function Header({title,onGear}){
-    return(
+  function Header({title, onGear}) {
+    return (
       <div className="app-header">
         <img className="bcg-logo-img" src={LOGO} alt="Budal Construction Group"/>
         <div className="header-right">
           <div className="app-title-tag">{title}</div>
-          {onGear&&<button className="gear-btn" onClick={onGear} title="Admin">⚙</button>}
+          {onGear && <button className="gear-btn" onClick={onGear} title="Admin">⚙</button>}
         </div>
       </div>
     );
   }
 
-  function ListManager({storeKey,defaults,label,placeholder}){
-    const [items,setItems]=useState(()=>LS.get(storeKey,defaults));
-    const [input,setInput]=useState("");
-    const add=()=>{
+  function ListManager({storeKey,defaults,label,placeholder}) {
+    const [items,setItems] = useState(()=>LS.get(storeKey,defaults));
+    const [input,setInput] = useState("");
+    const add = () => {
       const v=input.trim();
-      if(!v||items.map(i=>i.toLowerCase()).includes(v.toLowerCase()))return;
+      if (!v||items.map(i=>i.toLowerCase()).includes(v.toLowerCase())) return;
       const next=[...items,v].sort((a,b)=>a.localeCompare(b));
-      setItems(next);LS.set(storeKey,next);setInput("");
+      setItems(next); LS.set(storeKey,next); setInput("");
     };
-    const del=(item)=>{
-      if(!window.confirm(`Remove "${item}"?`))return;
+    const del = item => {
+      if (!window.confirm("Remove \""+item+"\"?")) return;
       const next=items.filter(i=>i!==item);
-      setItems(next);LS.set(storeKey,next);
+      setItems(next); LS.set(storeKey,next);
     };
-    return(
+    return (
       <div className="admin-section">
         <div className="admin-add-row">
           <input className="admin-input" placeholder={placeholder} value={input}
             onChange={e=>setInput(e.target.value)} onKeyDown={e=>e.key==="Enter"&&add()}/>
-          <button className="admin-add-btn" onClick={add} disabled={!input.trim()}>＋</button>
+          <button className="admin-add-btn" onClick={add} disabled={!input.trim()}>+</button>
         </div>
         <div className="admin-count">{items.length} {label.toLowerCase()}{items.length!==1?"s":""}</div>
         <div className="admin-list">
           {items.length===0
-            ?<div className="admin-empty">No {label.toLowerCase()}s yet</div>
-            :items.map(item=>(
-              <div className="admin-item" key={item}>
-                <span className="admin-item-name">{item}</span>
-                <button className="admin-del" onClick={()=>del(item)}>✕</button>
-              </div>
-            ))
+            ? <div className="admin-empty">No {label.toLowerCase()}s yet</div>
+            : items.map(item=>(
+                <div className="admin-item" key={item}>
+                  <span className="admin-item-name">{item}</span>
+                  <button className="admin-del" onClick={()=>del(item)}>✕</button>
+                </div>
+              ))
           }
         </div>
       </div>
     );
   }
 
-  function PinEntry({pin,onSuccess,onCancel}){
-    const [entered,setEntered]=useState("");
-    const [error,setError]=useState(false);
-    const press=d=>{
-      if(entered.length>=pin.length)return;
-      const next=entered+d;setEntered(next);setError(false);
-      if(next.length===pin.length){
-        if(next===pin)setTimeout(onSuccess,150);
+  function PinEntry({pin,onSuccess,onCancel}) {
+    const [entered,setEntered] = useState("");
+    const [error,setError]     = useState(false);
+    const press = d => {
+      if (entered.length>=pin.length) return;
+      const next=entered+d; setEntered(next); setError(false);
+      if (next.length===pin.length) {
+        if (next===pin) setTimeout(onSuccess,150);
         else setTimeout(()=>{setEntered("");setError(true);},300);
       }
     };
     const KEYS=["1","2","3","4","5","6","7","8","9","","0","⌫"];
-    return(
+    return (
       <div className="screen-body">
         <div className="pin-screen">
           <div className="pin-lock">🔐</div>
@@ -274,66 +266,64 @@
           <div className="pin-sub">Enter your PIN to manage<br/>employees, sites &amp; supervisors.</div>
           <div className="pin-dots">
             {Array.from({length:pin.length}).map((_,i)=>(
-              <div key={i} className={`pin-dot ${i<entered.length?"filled":""}`}/>
+              <div key={i} className={"pin-dot"+(i<entered.length?" filled":"")}/>
             ))}
           </div>
           <div className="pin-pad">
             {KEYS.map((k,i)=>{
-              if(k==="")return<div key={i} className="pin-key empty"/>;
-              if(k==="⌫")return<button key={i} className="pin-key del" onClick={()=>setEntered(p=>p.slice(0,-1))}>{k}</button>;
-              return<button key={i} className="pin-key" onClick={()=>press(k)}>{k}</button>;
+              if (k==="") return <div key={i} className="pin-key empty"/>;
+              if (k==="⌫") return <button key={i} className="pin-key del" onClick={()=>setEntered(p=>p.slice(0,-1))}>{k}</button>;
+              return <button key={i} className="pin-key" onClick={()=>press(k)}>{k}</button>;
             })}
           </div>
-          {error&&<div className="pin-error">Incorrect PIN — please try again.</div>}
+          {error && <div className="pin-error">Incorrect PIN — please try again.</div>}
           <button onClick={onCancel} style={{marginTop:24,background:"none",border:"none",color:"#555",cursor:"pointer",fontSize:13,fontFamily:"inherit"}}>Cancel</button>
         </div>
       </div>
     );
   }
 
-  function AdminPanel({onClose}){
-    const [tab,setTab]=useState("emp");
-    const [pin,setPin]=useState(()=>LS.get("bcg_pin","1979"));
-    const [newPin,setNewPin]=useState("");
-    const [pinMsg,setPinMsg]=useState("");
-    const savePin=()=>{
-      if(!/^\d{4,6}$/.test(newPin)){setPinMsg("Must be 4–6 digits.");return;}
-      LS.set("bcg_pin",newPin);setPin(newPin);setNewPin("");
-      setPinMsg("PIN saved ✓");setTimeout(()=>setPinMsg(""),3000);
+  function AdminPanel({onClose}) {
+    const [tab,setTab]   = useState("emp");
+    const [newPin,setNewPin] = useState("");
+    const [pinMsg,setPinMsg] = useState("");
+    const savePin = () => {
+      if (!/^\d{4,6}$/.test(newPin)){setPinMsg("Must be 4-6 digits.");return;}
+      LS.set("bcg_pin",newPin); setNewPin("");
+      setPinMsg("PIN saved"); setTimeout(()=>setPinMsg(""),3000);
     };
-    const TABS=[{id:"emp",label:"👷 Crew"},{id:"sites",label:"📍 Sites"},{id:"sups",label:"🪪 Sups."},{id:"cfg",label:"⚙️ Settings"}];
-    return(
+    const TABS=[{id:"emp",label:"Crew"},{id:"sites",label:"Sites"},{id:"sups",label:"Sups."},{id:"cfg",label:"Settings"}];
+    return (
       <>
         <Header title="Admin"/>
         <div style={{display:"flex",justifyContent:"flex-end",padding:"8px 20px 0",background:"#0a1f47",borderBottom:"1px solid #1a3a6e"}}>
-          <button onClick={onClose} style={{background:"none",border:"none",color:"#7a9cc8",cursor:"pointer",fontSize:13,fontFamily:"'Barlow Condensed',sans-serif",letterSpacing:"1px"}}>← Back to App</button>
+          <button onClick={onClose} style={{background:"none",border:"none",color:"#7a9cc8",cursor:"pointer",fontSize:13,fontFamily:"'Barlow Condensed',sans-serif",letterSpacing:"1px"}}>Back to App</button>
         </div>
         <div className="admin-tabs">
-          {TABS.map(t=><button key={t.id} className={`admin-tab ${tab===t.id?"active":""}`} onClick={()=>setTab(t.id)}>{t.label}</button>)}
+          {TABS.map(t=><button key={t.id} className={"admin-tab"+(tab===t.id?" active":"")} onClick={()=>setTab(t.id)}>{t.label}</button>)}
         </div>
         <div className="screen-body">
-          {tab==="emp"  &&<ListManager storeKey="bcg_emp"   defaults={DEF_EMP}   label="Employee"   placeholder="Full name, e.g. John Smith"/>}
-          {tab==="sites"&&<ListManager storeKey="bcg_sites" defaults={DEF_SITES} label="Job Site"   placeholder="e.g. Red Deer Civic Project"/>}
-          {tab==="sups" &&<ListManager storeKey="bcg_sups"  defaults={DEF_SUPS}  label="Supervisor" placeholder="e.g. J. Smith"/>}
-          {tab==="cfg"  &&(
+          {tab==="emp"   && <ListManager storeKey="bcg_emp"   defaults={DEF_EMP}   label="Employee"   placeholder="Full name, e.g. John Smith"/>}
+          {tab==="sites" && <ListManager storeKey="bcg_sites" defaults={DEF_SITES} label="Job Site"   placeholder="e.g. Red Deer Civic Project"/>}
+          {tab==="sups"  && <ListManager storeKey="bcg_sups"  defaults={DEF_SUPS}  label="Supervisor" placeholder="e.g. J. Smith"/>}
+          {tab==="cfg"   && (
             <div className="admin-section">
               <div className="section-label" style={{paddingTop:0,marginBottom:16}}>Change Admin PIN</div>
               <div className="settings-card">
                 <div className="settings-card-title">New PIN</div>
                 <div className="admin-add-row" style={{marginBottom:0}}>
-                  <input className="admin-input" type="password" inputMode="numeric" placeholder="4–6 digits" maxLength={6}
-                    value={newPin} onChange={e=>setNewPin(e.target.value.replace(/\D/g,""))} onKeyDown={e=>e.key==="Enter"&&savePin()}/>
-                  <button className="admin-add-btn" onClick={savePin} disabled={!newPin} style={{fontSize:14,letterSpacing:1,width:60}}>Save</button>
+                  <input className="admin-input" type="password" inputMode="numeric"
+                    placeholder="4-6 digits" maxLength={6}
+                    value={newPin} onChange={e=>setNewPin(e.target.value.replace(/\D/g,""))}
+                    onKeyDown={e=>e.key==="Enter"&&savePin()}/>
+                  <button className="admin-add-btn" onClick={savePin} disabled={!newPin} style={{fontSize:13,width:60}}>Save</button>
                 </div>
-                {pinMsg&&<div className="hint" style={{color:pinMsg.includes("✓")?"#5eac5e":"#e07060",marginTop:10}}>{pinMsg}</div>}
+                {pinMsg && <div className="hint" style={{color:"#5eac5e",marginTop:10}}>{pinMsg}</div>}
                 <div className="hint" style={{marginTop:8}}>Default PIN is <strong style={{color:"#5B9BD5"}}>1979</strong>.</div>
               </div>
-              <div className="section-label" style={{marginBottom:12}}>Google Sheet Connection</div>
+              <div className="section-label" style={{marginBottom:12}}>App Info</div>
               <div className="settings-card" style={{marginBottom:0}}>
-                <div style={{fontSize:12,color:scriptReady?"#5eac5e":"#e07060",fontFamily:"'Barlow Condensed',sans-serif",marginBottom:8}}>
-                  {scriptReady?"✅ Connected to Google Sheet":"⚠️ Not yet connected — paste your Script URL in the HTML file"}
-                </div>
-                {[["Sheet","BCG Crew & Site Notes"],["HR Email","kim@budal.com"],["Photos","Google Drive — BCG Observe Photos"]].map(([k,v])=>(
+                {[["App","BCG Observe"],["Company","Budal Construction Group"],["HR Email","kim@budal.com"],["Sheet","BCG Crew & Site Notes"]].map(([k,v])=>(
                   <div className="info-row" key={k}>
                     <span className="info-key">{k}</span>
                     <span className="info-val">{v}</span>
@@ -347,138 +337,177 @@
     );
   }
 
-  function App(){
+  function App() {
+    // Persisted identity — who is using this device
+    const [mySup,   setMySup]   = useState(null);
+    const [supReady,setSupReady] = useState(false);
+
+    // Live lists from Google Sheet
+    const [employees,   setEmployees]   = useState(DEF_EMP);
+    const [sites,       setSites]       = useState(DEF_SITES);
+    const [supervisors, setSupervisors] = useState(DEF_SUPS);
+    const [listsLoaded, setListsLoaded] = useState(false);
+
+    // Form state
     const [screen,   setScreen]   = useState("home");
-    const [sup,      setSup]      = useState(()=>LS.get("bcg_sups",DEF_SUPS)[0]||"");
+    const [sup,      setSup]      = useState("");
     const [employee, setEmployee] = useState("");
     const [site,     setSite]     = useState("");
     const [date,     setDate]     = useState(getNow().date);
     const [time,     setTime]     = useState(getNow().time);
     const [cat,      setCat]      = useState(null);
     const [notes,    setNotes]    = useState("");
-    const [photos,   setPhotos]   = useState([]); // [{preview, base64, name}]
+    const [photos,   setPhotos]   = useState([]);
     const [witness,  setWitness]  = useState("");
     const [refId,    setRefId]    = useState(genRef);
     const [submitErr,setSubmitErr]= useState("");
 
-    const [mySup, setMySup] = useState(() => LS.get("bcg_my_sup", null));
+    const adminPin = () => LS.get("bcg_pin","1979");
 
-      employees: DEF_EMP,
-      sites: DEF_SITES,
-      supervisors: DEF_SUPS,
-      loaded: false,
-    });
-
+    // Load saved identity on mount
     useEffect(() => {
-      if (!scriptReady) return;
-      fetch(SCRIPT_URL)
-        .then(r => r.json())
-        .then(data => {
-          setLists({
-            employees:   data.employees?.length   ? data.employees   : DEF_EMP,
-            sites:       data.sites?.length       ? data.sites       : DEF_SITES,
-            supervisors: data.supervisors?.length ? data.supervisors : DEF_SUPS,
-            loaded: true,
-          });
-          const saved = LS.get("bcg_my_sup", null);
-          setSup(saved || data.supervisors?.[0] || DEF_SUPS[0]);
-        })
-        .catch(() => setLists(l => ({ ...l, loaded: true })));
+      const saved = LS.get("bcg_my_sup", null);
+      if (saved) { setMySup(saved); setSup(saved); }
+      setSupReady(true);
     }, []);
 
-    const employees   = () => lists.employees;
-    const sites       = () => lists.sites;
-    const supervisors = () => lists.supervisors;
-    const adminPin    = ()=>LS.get("bcg_pin",  "1979");
+    // Fetch live lists from Google Sheet
+    useEffect(() => {
+      fetch(SCRIPT_URL)
+        .then(r=>r.json())
+        .then(data=>{
+          if (data.employees   && data.employees.length)   setEmployees(data.employees);
+          if (data.sites       && data.sites.length)       setSites(data.sites);
+          if (data.supervisors && data.supervisors.length) setSupervisors(data.supervisors);
+          setListsLoaded(true);
+        })
+        .catch(()=>setListsLoaded(true));
+    }, []);
 
-    const step=screen==="step1"?1:screen==="step2"?2:screen==="step3"?3:0;
+    const step = screen==="step1"?1:screen==="step2"?2:screen==="step3"?3:0;
 
-    const Progress=()=>(
+    const Progress = () => (
       <div className="form-progress">
-        {[1,2,3].map(s=><div key={s} className={`progress-dot ${s<step?"done":s===step?"active":""}`}/>)}
+        {[1,2,3].map(s=><div key={s} className={"progress-dot"+(s<step?" done":s===step?" active":"")}/>)}
       </div>
     );
 
-    const handlePhotos=async(e)=>{
+    const addPhotos = async e => {
       const files=Array.from(e.target.files||[]);
-      const remaining=5-photos.length;
-      const toAdd=files.slice(0,remaining);
-      const converted=await Promise.all(toAdd.map(async f=>({
+      const rem=5-photos.length;
+      const converted=await Promise.all(files.slice(0,rem).map(async f=>({
         preview:URL.createObjectURL(f),
         base64:await toBase64(f),
-        name:f.name,
       })));
       setPhotos(prev=>[...prev,...converted]);
       e.target.value="";
     };
 
-    const handleSubmit=async()=>{
-      setScreen("submitting");
-      setSubmitErr("");
-
-      const payload={
-        refId,
-        supervisor:sup,
-        employee,
-        site,
-        date,
-        time,
-        category:cat?.label||"",
-        notes,
-        witness,
-        photos:photos.map(p=>p.base64),
-      };
-
-      if(!scriptReady){
-        // Demo mode — just show success without actually submitting
-        setTimeout(()=>setScreen("success"),1500);
-        return;
-      }
-
-      try{
-        // no-cors bypasses CORS restrictions when running from a local file.
-        // We can't read the response body in this mode, so we wait briefly
-        // then show success — the script always writes to the Sheet regardless.
-        await fetch(SCRIPT_URL,{
-          method:"POST",
-          mode:"no-cors",
-          body:JSON.stringify(payload),
-        });
-        // Give the script a moment to process, then show success
-        setTimeout(()=>setScreen("success"), 800);
-      }catch(err){
-        setSubmitErr(err.message||"Could not reach the server. Check your internet connection and try again.");
+    const handleSubmit = async () => {
+      setScreen("submitting"); setSubmitErr("");
+      const payload = { refId, supervisor:sup, employee, site, date, time, category:cat?cat.label:"", notes, witness, photos:photos.map(p=>p.base64) };
+      try {
+        await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",body:JSON.stringify(payload)});
+        setTimeout(()=>setScreen("success"),800);
+      } catch(err) {
+        setSubmitErr(err.message||"Could not reach the server. Please check your connection.");
         setScreen("error");
       }
     };
 
-    const reset=()=>{
-      setScreen("home");setEmployee("");setSite("");setCat(null);
-      setNotes("");setPhotos([]);setWitness("");
-      setDate(getNow().date);setTime(getNow().time);
-      setRefId(genRef());
+    const reset = () => {
+      setScreen("home"); setEmployee(""); setSite(""); setCat(null);
+      setNotes(""); setPhotos([]); setWitness("");
+      setDate(getNow().date); setTime(getNow().time); setRefId(genRef());
     };
 
-    // Choose identity on first open
-    if (!mySup && lists.loaded) return (
+    const chooseSup = name => {
+      LS.set("bcg_my_sup", name);
+      setMySup(name); setSup(name);
+    };
+
+    const forgetSup = () => {
+      LS.set("bcg_my_sup", null);
+      setMySup(null); setSup("");
+    };
+
+    // Wait for localStorage check
+    if (!supReady) return (
       <div className="phone-shell">
         <StatusBar/>
-        <Header title="Welcome"/>
+        <Header title="BCG Observe"/>
+        <div className="screen-body">
+          <div className="submitting-screen"><div className="spinner"/></div>
+        </div>
+      </div>
+    );
+
+    // PIN screen
+    if (screen==="pin") return (
+      <div className="phone-shell">
+        <StatusBar/>
+        <Header title="Admin"/>
+        <PinEntry pin={adminPin()} onSuccess={()=>setScreen("admin")} onCancel={()=>setScreen("home")}/>
+      </div>
+    );
+
+    // Admin panel
+    if (screen==="admin") return (
+      <div className="phone-shell">
+        <StatusBar/>
+        <AdminPanel onClose={()=>setScreen("home")}/>
+      </div>
+    );
+
+    // Submitting
+    if (screen==="submitting") return (
+      <div className="phone-shell">
+        <StatusBar/>
+        <Header title="Submitting..."/>
+        <div className="screen-body">
+          <div className="submitting-screen">
+            <div className="spinner"/>
+            <div className="submitting-title">Sending to HR...</div>
+            <div className="submitting-sub">Uploading your report{photos.length>0?" and "+photos.length+" photo"+(photos.length>1?"s":""):""}.<br/>This takes a few seconds.</div>
+          </div>
+        </div>
+      </div>
+    );
+
+    // Error
+    if (screen==="error") return (
+      <div className="phone-shell">
+        <StatusBar/>
+        <Header title="Error"/>
+        <div className="screen-body">
+          <div className="error-screen">
+            <div className="error-icon">⚠️</div>
+            <div className="error-title">Submission Failed</div>
+            <div className="error-msg">{submitErr||"Something went wrong. Please try again."}</div>
+            <button className="btn-retry" onClick={()=>setScreen("step3")}>Try Again</button>
+            <button onClick={reset} style={{background:"none",border:"none",color:"#555",cursor:"pointer",fontSize:13,fontFamily:"inherit",marginTop:8}}>Cancel and go home</button>
+          </div>
+        </div>
+      </div>
+    );
+
+    // Identity selection — first time only
+    if (!mySup) return (
+      <div className="phone-shell">
+        <StatusBar/>
+        <Header title="BCG Observe"/>
         <div className="screen-body">
           <div className="setup-screen">
             <div className="setup-icon">👷</div>
             <div className="setup-title">Who are you?</div>
-            <div className="setup-sub">Select your name once and the app will remember you every time.</div>
+            <div className="setup-sub">Select your name once — the app will remember you every time you open it.</div>
+            {!listsLoaded && <div className="spinner" style={{marginBottom:20}}/>}
             <div className="setup-list">
-              {supervisors().map(s => (
-                <button key={s} className="setup-item" onClick={() => {
-                  LS.set("bcg_my_sup", s);
-                  setMySup(s);
-                  setSup(s);
-                }}>
-                  <div className="setup-avatar">{s.split(" ").map(w=>w[0]).join("").slice(0,2)}</div>
+              {supervisors.map(name=>(
+                <button key={name} className="setup-item" onClick={()=>chooseSup(name)}>
+                  <div className="setup-avatar">{initials(name)}</div>
                   <div>
-                    <div className="setup-item-name">{s}</div>
+                    <div className="setup-item-name">{name}</div>
                     <div className="setup-item-role">Site Supervisor — Budal Construction</div>
                   </div>
                 </button>
@@ -489,252 +518,195 @@
       </div>
     );
 
-    if (!mySup && !lists.loaded) return (
+    // Success
+    if (screen==="success") return (
       <div className="phone-shell">
         <StatusBar/>
-        <Header title="BCG Observe"/>
+        <Header title="Submitted"/>
         <div className="screen-body">
-          <div className="submitting-screen">
-            <div className="spinner"/>
-            <div className="submitting-title">Loading…</div>
-          </div>
-        </div>
-      </div>
-    );
-      <div className="phone-shell">
-        <StatusBar/>
-        <Header title="Admin"/>
-        <PinEntry pin={adminPin()} onSuccess={()=>setScreen("admin")} onCancel={()=>setScreen("home")}/>
-      </div>
-    );
-
-    if(screen==="admin") return(
-      <div className="phone-shell">
-        <StatusBar/>
-        <AdminPanel onClose={()=>{setSup(LS.get("bcg_sups",DEF_SUPS)[0]||"");setScreen("home");}}/>
-      </div>
-    );
-
-    if(screen==="submitting") return(
-      <div className="phone-shell">
-        <StatusBar/>
-        <Header title="Submitting…"/>
-        <div className="screen-body">
-          <div className="submitting-screen">
-            <div className="spinner"/>
-            <div className="submitting-title">Sending to HR…</div>
-            <div className="submitting-sub">
-              Uploading your report{photos.length>0?" and "+photos.length+" photo"+(photos.length>1?"s":""):""}.<br/>
-              This takes a few seconds.
+          <div className="success-screen">
+            <div className="success-icon">✓</div>
+            <div className="success-title">Observation Logged</div>
+            <div className="success-sub">Your report has been sent to HR and saved to the Google Sheet.</div>
+            <div className="success-ref">
+              <div className="ref-label">Reference Number</div>
+              <div className="ref-id">{refId}</div>
             </div>
+            <div className="summary-pills">
+              <div className="summary-pill">👤 {employee}</div>
+              <div className="summary-pill">{cat&&cat.icon} {cat&&cat.label}</div>
+              <div className="summary-pill">📍 {site.split(" —")[0]}</div>
+              <div className="summary-pill">📅 {date}</div>
+              {photos.length>0 && <div className="summary-pill">📷 {photos.length} photo{photos.length>1?"s":""}</div>}
+            </div>
+            <button className="btn-done" onClick={reset}>Done</button>
           </div>
         </div>
       </div>
     );
 
-    if(screen==="error") return(
-      <div className="phone-shell">
-        <StatusBar/>
-        <Header title="Error"/>
-        <div className="screen-body">
-          <div className="error-screen">
-            <div className="error-icon">⚠️</div>
-            <div className="error-title">Submission Failed</div>
-            <div className="error-msg">{submitErr||"Something went wrong. Please try again or contact IT."}</div>
-            <button className="btn-retry" onClick={()=>setScreen("step3")}>← Try Again</button>
-            <button onClick={reset} style={{background:"none",border:"none",color:"#555",cursor:"pointer",fontSize:13,fontFamily:"inherit",marginTop:8}}>Cancel &amp; go home</button>
-          </div>
-        </div>
-      </div>
-    );
-
-    return(
+    // Main app screens
+    return (
       <div className="phone-shell">
         <StatusBar/>
 
         {/* HOME */}
-        {screen==="home"&&<>
-          <Header title="BCG Observe" onGear={()=>setScreen("pin")}/>
-          <div className="screen-body">
-            {!scriptReady&&(
-              <div className="url-banner">
-                <strong>Demo Mode</strong> — submissions won't reach your Sheet yet.<br/>
-                Paste your Apps Script URL into the HTML file to go live.
-              </div>
-            )}
-            <div className="home-hero">
-              <div className="home-greeting">Good day, Supervisor</div>
-              <div className="home-name">{mySup}</div>
-              <div className="home-meta">
-                <div className="meta-pill">📅 <span>{new Date().toLocaleDateString("en-CA",{weekday:"short",month:"short",day:"numeric"})}</span></div>
-                <div className="meta-pill" style={{cursor:"pointer"}} onClick={()=>{LS.set("bcg_my_sup",null);setMySup(null);}}>🔄 <span>Not you?</span></div>
-              </div>
-            </div>
-            <button className="cta-button" onClick={()=>setScreen("step1")} disabled={!lists.loaded} style={!lists.loaded?{background:"#3a3a3a",color:"#555",cursor:"not-allowed"}:{}}>
-              {lists.loaded ? "＋ New Observation" : "⏳ Loading lists…"}
-            </button>
-            <div className="recent-section">
-              <div className="section-label">How It Works</div>
-              {[
-                {icon:"👤",title:"Select employee & site",sub:"Step 1 — who and where"},
-                {icon:"🏷️",title:"Choose observation type",sub:"Step 2 — what happened"},
-                {icon:"📋",title:"Add notes & photos",sub:"Step 3 — details and evidence"},
-              ].map((s,i)=>(
-                <div className="recent-card" key={i}>
-                  <div className="recent-icon" style={{background:"rgba(43,108,176,0.15)",fontSize:20}}>{s.icon}</div>
-                  <div className="recent-info">
-                    <div className="recent-employee">{s.title}</div>
-                    <div className="recent-cat">{s.sub}</div>
-                  </div>
+        {screen==="home" && (
+          <>
+            <Header title="BCG Observe" onGear={()=>setScreen("pin")}/>
+            <div className="screen-body">
+              <div className="home-hero">
+                <div className="home-greeting">Good day, Supervisor</div>
+                <div className="home-name">{mySup}</div>
+                <div className="home-meta">
+                  <div className="meta-pill">📅 <span>{new Date().toLocaleDateString("en-CA",{weekday:"short",month:"short",day:"numeric"})}</span></div>
+                  <div className="meta-pill" onClick={forgetSup}>🔄 <span>Not you?</span></div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </>}
-
-        {/* STEP 1 */}
-        {screen==="step1"&&<>
-          <Header title="New Obs."/>
-          <Progress/>
-          <div className="screen-body">
-            <div className="form-step-header">
-              <div className="step-number">Step 1 of 3</div>
-              <div className="step-title">Who &amp; Where</div>
-            </div>
-            <div className="form-section">
-              <div className="field-label">Your Name</div>
-              <select className="field-select" value={sup} onChange={e=>setSup(e.target.value)}>
-                {supervisors().map(s=><option key={s}>{s}</option>)}
-              </select>
-            </div>
-            <div className="form-section">
-              <div className="field-label">Employee</div>
-              <select className="field-select" value={employee} onChange={e=>setEmployee(e.target.value)}>
-                <option value="">Select employee…</option>
-                {employees().map(e=><option key={e}>{e}</option>)}
-              </select>
-            </div>
-            <div className="form-section">
-              <div className="field-label">Job Site</div>
-              <select className="field-select" value={site} onChange={e=>setSite(e.target.value)}>
-                <option value="">Select site…</option>
-                {sites().map(s=><option key={s}>{s}</option>)}
-              </select>
-            </div>
-            <div className="form-section">
-              <div className="field-label">Date &amp; Time</div>
-              <div className="date-row">
-                <div><input type="date" className="field-input" value={date} onChange={e=>setDate(e.target.value)}/></div>
-                <div><input type="time" className="field-input" value={time} onChange={e=>setTime(e.target.value)}/></div>
               </div>
-            </div>
-            <div className="nav-bar">
-              <button className="btn-back" onClick={()=>setScreen("home")}>← Back</button>
-              <button className="btn-next" disabled={!employee||!site} onClick={()=>setScreen("step2")}>Next →</button>
-            </div>
-          </div>
-        </>}
-
-        {/* STEP 2 */}
-        {screen==="step2"&&<>
-          <Header title="New Obs."/>
-          <Progress/>
-          <div className="screen-body">
-            <div className="form-step-header">
-              <div className="step-number">Step 2 of 3</div>
-              <div className="step-title">Observation Type</div>
-            </div>
-            <div className="cat-grid">
-              {CATS.map(c=>(
-                <div key={c.id} className={`cat-tile ${cat?.id===c.id?"selected":""}`}
-                  style={{"--cat-color":c.color}} onClick={()=>setCat(c)}>
-                  <div className="cat-tile-icon">{c.icon}</div>
-                  <div className="cat-tile-label">{c.label}</div>
-                </div>
-              ))}
-            </div>
-            <div className="nav-bar">
-              <button className="btn-back" onClick={()=>setScreen("step1")}>← Back</button>
-              <button className="btn-next" disabled={!cat} onClick={()=>setScreen("step3")}>Next →</button>
-            </div>
-          </div>
-        </>}
-
-        {/* STEP 3 */}
-        {screen==="step3"&&<>
-          <Header title="New Obs."/>
-          <Progress/>
-          <div className="screen-body">
-            <div className="form-step-header">
-              <div className="step-number">Step 3 of 3</div>
-              <div className="step-title">Notes &amp; Evidence</div>
-            </div>
-            <div className="form-section">
-              <div className="field-label">What Happened</div>
-              <textarea className="field-textarea" placeholder="Describe the situation clearly and factually…"
-                value={notes} onChange={e=>setNotes(e.target.value)}/>
-            </div>
-            <div className="form-section">
-              <div className="field-label">Attach Photos (up to 5)</div>
-              <div className="photo-row">
-                {photos.map((p,i)=>(
-                  <div key={i} style={{position:"relative",width:72,height:72}}>
-                    <img src={p.preview} alt="evidence" style={{width:72,height:72,objectFit:"cover",borderRadius:8,border:"1.5px solid #2B6CB0",display:"block"}}/>
-                    <button onClick={()=>setPhotos(prev=>prev.filter((_,j)=>j!==i))}
-                      style={{position:"absolute",top:-6,right:-6,width:20,height:20,borderRadius:"50%",background:"#C0392B",border:"none",color:"#fff",fontSize:12,lineHeight:"20px",textAlign:"center",cursor:"pointer",padding:0}}>✕</button>
+              <button className="cta-button" disabled={!listsLoaded} onClick={()=>setScreen("step1")}>
+                {listsLoaded ? "+ New Observation" : "Loading..."}
+              </button>
+              <div className="recent-section">
+                <div className="section-label">How It Works</div>
+                {[
+                  {icon:"👤",title:"Select employee & site",   sub:"Step 1 — who and where"},
+                  {icon:"🏷️",title:"Choose observation type", sub:"Step 2 — what happened"},
+                  {icon:"📋",title:"Add notes & photos",       sub:"Step 3 — details and evidence"},
+                ].map((s,i)=>(
+                  <div className="recent-card" key={i}>
+                    <div className="recent-icon" style={{background:"rgba(43,108,176,0.15)",fontSize:20}}>{s.icon}</div>
+                    <div className="recent-info">
+                      <div className="recent-employee">{s.title}</div>
+                      <div className="recent-cat">{s.sub}</div>
+                    </div>
                   </div>
                 ))}
-                {photos.length<5&&(
-                  <label className="photo-thumb" style={{cursor:"pointer"}}>
-                    <span className="icon">📷</span><span>Add Photo</span>
-                    <input type="file" accept="image/*" capture="environment" multiple style={{display:"none"}} onChange={handlePhotos}/>
-                  </label>
-                )}
               </div>
-              {photos.length>0&&<div style={{marginTop:8,fontSize:12,color:"#666",fontFamily:"'Barlow Condensed',sans-serif"}}>{photos.length} photo{photos.length>1?"s":""} attached · click ✕ to remove</div>}
             </div>
-            <div className="form-section">
-              <div className="field-label">Witness (Optional)</div>
-              <select className="field-select" value={witness} onChange={e=>setWitness(e.target.value)}>
-                <option value="">None</option>
-                {supervisors().filter(s=>s!==sup).map(s=><option key={s}>{s}</option>)}
-                <option value="Other crew member">Other crew member</option>
-              </select>
-            </div>
-            <div className="nav-bar">
-              <button className="btn-back" onClick={()=>setScreen("step2")}>← Back</button>
-              <button className="btn-next" onClick={handleSubmit}>Submit to HR ✓</button>
-            </div>
-          </div>
-        </>}
+          </>
+        )}
 
-        {/* SUCCESS */}
-        {screen==="success"&&<>
-          <Header title="Submitted"/>
-          <div className="screen-body">
-            <div className="success-screen">
-              <div className="success-icon">✓</div>
-              <div className="success-title">Observation Logged</div>
-              <div className="success-sub">
-                {scriptReady
-                  ?"Your report has been sent to HR and saved to the Google Sheet."
-                  :"Demo submitted successfully. Connect your Script URL to go live."}
+        {/* STEP 1 */}
+        {screen==="step1" && (
+          <>
+            <Header title="New Obs."/>
+            <Progress/>
+            <div className="screen-body">
+              <div className="form-step-header">
+                <div className="step-number">Step 1 of 3</div>
+                <div className="step-title">Who &amp; Where</div>
               </div>
-              <div className="success-ref">
-                <div className="ref-label">Reference Number</div>
-                <div className="ref-id">{refId}</div>
+              <div className="form-section">
+                <div className="field-label">Your Name</div>
+                <select className="field-select" value={sup} onChange={e=>setSup(e.target.value)}>
+                  {supervisors.map(s=><option key={s}>{s}</option>)}
+                </select>
               </div>
-              <div className="summary-pills">
-                <div className="summary-pill">👤 {employee}</div>
-                <div className="summary-pill">{cat?.icon} {cat?.label}</div>
-                <div className="summary-pill">📍 {site?.split(" —")[0]}</div>
-                <div className="summary-pill">📅 {date}</div>
-                {photos.length>0&&<div className="summary-pill">📷 {photos.length} photo{photos.length>1?"s":""}</div>}
+              <div className="form-section">
+                <div className="field-label">Employee</div>
+                <select className="field-select" value={employee} onChange={e=>setEmployee(e.target.value)}>
+                  <option value="">Select employee...</option>
+                  {employees.map(e=><option key={e}>{e}</option>)}
+                </select>
               </div>
-              <button className="btn-done" onClick={reset}>Done</button>
+              <div className="form-section">
+                <div className="field-label">Job Site</div>
+                <select className="field-select" value={site} onChange={e=>setSite(e.target.value)}>
+                  <option value="">Select site...</option>
+                  {sites.map(s=><option key={s}>{s}</option>)}
+                </select>
+              </div>
+              <div className="form-section">
+                <div className="field-label">Date &amp; Time</div>
+                <div className="date-row">
+                  <div><input type="date" className="field-input" value={date} onChange={e=>setDate(e.target.value)}/></div>
+                  <div><input type="time" className="field-input" value={time} onChange={e=>setTime(e.target.value)}/></div>
+                </div>
+              </div>
+              <div className="nav-bar">
+                <button className="btn-back" onClick={()=>setScreen("home")}>Back</button>
+                <button className="btn-next" disabled={!employee||!site} onClick={()=>setScreen("step2")}>Next</button>
+              </div>
             </div>
-          </div>
-        </>}
+          </>
+        )}
+
+        {/* STEP 2 */}
+        {screen==="step2" && (
+          <>
+            <Header title="New Obs."/>
+            <Progress/>
+            <div className="screen-body">
+              <div className="form-step-header">
+                <div className="step-number">Step 2 of 3</div>
+                <div className="step-title">Observation Type</div>
+              </div>
+              <div className="cat-grid">
+                {CATS.map(c=>(
+                  <div key={c.id} className={"cat-tile"+(cat&&cat.id===c.id?" selected":"")}
+                    style={{"--cat-color":c.color}} onClick={()=>setCat(c)}>
+                    <div className="cat-tile-icon">{c.icon}</div>
+                    <div className="cat-tile-label">{c.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="nav-bar">
+                <button className="btn-back" onClick={()=>setScreen("step1")}>Back</button>
+                <button className="btn-next" disabled={!cat} onClick={()=>setScreen("step3")}>Next</button>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* STEP 3 */}
+        {screen==="step3" && (
+          <>
+            <Header title="New Obs."/>
+            <Progress/>
+            <div className="screen-body">
+              <div className="form-step-header">
+                <div className="step-number">Step 3 of 3</div>
+                <div className="step-title">Notes &amp; Evidence</div>
+              </div>
+              <div className="form-section">
+                <div className="field-label">What Happened</div>
+                <textarea className="field-textarea" placeholder="Describe the situation clearly and factually..."
+                  value={notes} onChange={e=>setNotes(e.target.value)}/>
+              </div>
+              <div className="form-section">
+                <div className="field-label">Attach Photos (up to 5)</div>
+                <div className="photo-row">
+                  {photos.map((p,i)=>(
+                    <div key={i} style={{position:"relative",width:72,height:72}}>
+                      <img src={p.preview} alt="evidence" style={{width:72,height:72,objectFit:"cover",borderRadius:8,border:"1.5px solid #2B6CB0",display:"block"}}/>
+                      <button onClick={()=>setPhotos(prev=>prev.filter((_,j)=>j!==i))}
+                        style={{position:"absolute",top:-6,right:-6,width:20,height:20,borderRadius:"50%",background:"#C0392B",border:"none",color:"#fff",fontSize:12,lineHeight:"20px",textAlign:"center",cursor:"pointer",padding:0}}>x</button>
+                    </div>
+                  ))}
+                  {photos.length<5 && (
+                    <label className="photo-thumb" style={{cursor:"pointer"}}>
+                      <span className="icon">📷</span><span>Add Photo</span>
+                      <input type="file" accept="image/*" capture="environment" multiple style={{display:"none"}} onChange={addPhotos}/>
+                    </label>
+                  )}
+                </div>
+                {photos.length>0 && <div style={{marginTop:8,fontSize:12,color:"#666",fontFamily:"'Barlow Condensed',sans-serif"}}>{photos.length} photo{photos.length>1?"s":""} attached</div>}
+              </div>
+              <div className="form-section">
+                <div className="field-label">Witness (Optional)</div>
+                <select className="field-select" value={witness} onChange={e=>setWitness(e.target.value)}>
+                  <option value="">None</option>
+                  {supervisors.filter(s=>s!==sup).map(s=><option key={s}>{s}</option>)}
+                  <option value="Other crew member">Other crew member</option>
+                </select>
+              </div>
+              <div className="nav-bar">
+                <button className="btn-back" onClick={()=>setScreen("step2")}>Back</button>
+                <button className="btn-next" onClick={handleSubmit}>Submit to HR</button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     );
   }
